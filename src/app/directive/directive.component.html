@@ -1,0 +1,46 @@
+<div class="container">
+    <br>
+<input type="text" [(ngModel)]="title">
+<h2>{{title|titlecase}}</h2>
+<br>
+<hr>
+<p>  
+  Server2 is also working fine.  
+</p>  
+  
+<label>Server Name</label>  
+<!--<input type="text"  
+       class="form-control"  
+       (input)="OnUpdateServerName($event)">-->  
+<input type="text"  
+       class="form-control"  
+[(ngModel)]="serverName">  
+<!--<p>{{serverName}}</p>-->  
+<button  
+  class="btn btn-primary mt-4"  
+  [disabled]="allowNewServer"  
+  (click)="onCreateServer()">Add Server</button>  
+<p *ngIf="serverCreated; else noServer"> Server is created. Server name is: {{serverName}}</p> 
+<ng-template #noServer>
+    <p>No Server is created</p>
+</ng-template> 
+
+
+
+<p [ngStyle]='{backgroundColor:getcolor()}' [ngClass]="{Online:serverStatus==='Online'}">Server with ID {{serverID}} is {{serverStatus}}. </p>  
+
+<h1>Currency Pipe</h1>
+<b>{{6589.23 | currency:"USD"}}</b><br/>
+<b>{{6589.23 | currency:"USD":true}}</b> 
+
+<h1>Date Pipe</h1>
+<b>{{todaydate | date:'MMMM d, y, h:mm:ss a z'}}</b>
+
+<h1>Json Pipe</h1>
+<b>{{jsonval | json}}</b>
+<h1>Slice pipe</h1>
+<b>{{months | slice:2:7}}</b>
+
+<h1> find Square root </h1>
+<b>Square root of 625 is:{{25 | sqrt}}</b>
+</div>
